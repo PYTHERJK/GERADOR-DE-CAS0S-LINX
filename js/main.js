@@ -74,7 +74,7 @@ function criaElemento(item) {
         `\n\nCNPJ: ` + item.cnpj +
         `\n\nDescrição: ` + item.problema +
         `\n\nMensagem de erro: Não Há\n 
-Ambiente: Microvix POS`);
+Ambiente: LinxPOS`);
 }
 
 function botaoDeleta(id) {
