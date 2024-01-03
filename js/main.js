@@ -49,7 +49,7 @@ function criaElemento(item) {
     novoItem.classList.add("item")
 
     novoItem.innerHTML += `ABERTURA DO CASO` +
-        `<br><br> LinxPOS Manager - Notas Pendetes de Reprocessamento<br>` +
+        `<br><br> LinxPOS Manager - Notas Pendentes de Reprocessamento<br>` +
         `<br><br>Nome: ` + item.nome +
         `<br><br>CNPJ: ` + item.cnpj +
         `<br><br>Descrição: ` + item.problema +
