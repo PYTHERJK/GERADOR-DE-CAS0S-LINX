@@ -59,7 +59,7 @@ function criaElemento(item) {
     <br>
     <br>FINALIZAÇÃO DO CASO 
     <br><br>Validado Por: ` + item.nome +
-        `<br>Meio de contato: Telefone` +
+        `<br>Meio de contato: Monitoria` +
         `<br>Causa: Service request 
         <br>Resolução:
     <br> NPS: Estou muito feliz em concluir mais um chamado,
