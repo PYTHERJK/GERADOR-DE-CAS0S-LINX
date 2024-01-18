@@ -9,16 +9,12 @@ itens.forEach((elemento) => {
 form.addEventListener("submit", (evento) => {
     evento.preventDefault()
 
-    const nome = evento.target.elements['nome']
     const cnpj = evento.target.elements['cnpj']
-    const problema = evento.target.elements['problema']
 
     const existe = itens.find(elemento => elemento.nome === nome.value)
 
     const itemAtual = {
-        "nome": nome.value,
-        "cnpj": cnpj.value,
-        "problema": problema.value,
+        "cnpj": cnpj.value
     }
 
     if (existe) {
@@ -37,9 +33,8 @@ form.addEventListener("submit", (evento) => {
 
     localStorage.setItem("itens", JSON.stringify(itens))
 
-    nome.value = ""
     cnpj.value = ""
-    problema.value = ""
+
 })
 
 // CRIAR ELEMENTO NA PÁGINA
@@ -49,19 +44,23 @@ function criaElemento(item) {
     novoItem.classList.add("item")
 
     novoItem.innerHTML += `ABERTURA DO CASO` +
-        `<br><br> LinxPOS Manager - Notas Pendentes de Reprocessamento<br>` +
-        `<br><br>Nome: ` + item.nome +
+        `<br><br> LinxPOS Manager - Notas Fiscais - Notas pendentes de reprocessamento<br>` +
+        `<br><br>Nome: Edgar ` + 
         `<br><br>CNPJ: ` + item.cnpj +
-        `<br><br>Descrição: ` + item.problema +
-        `<br><br>Mensagem de erro: Não Há <br>  
+        `<br><br>Descrição: Ao acessar o módulo Notas Fiscais, foram identificadas notas pendentes de reprocessamento. 
+        <br><br>Mensagem de erro: Não Há <br>  
     <br>Ambiente: Linx POS<br><br>
     =================================================
     <br>
     <br>FINALIZAÇÃO DO CASO 
-    <br><br>Validado Por: ` + item.nome +
+    <br><br>Validado Por: ` + 
         `<br>Meio de contato: Monitoria` +
-        `<br>Causa: Service request 
-        <br>Resolução:
+        `<br>Causa: A pendência ocorre, pois o sistema ao enviar as notas para a Sefaz, não conseguiu obter um retorno. 
+        <br>Solução: Para aprovação da Notas Fiscais pendentes, execute os passos a seguir:
+        <br> Acesse o LinxPOS Manager > Gerencial > Notas Fiscais;
+        <br> Abra a nota rejeitada e clique na aba Nota fiscal eletrônica:
+        <br> Clique na aba log para consultar o motivo da pendência:
+        <br> Clique no botão Ok para a nota ser reenviada para autorização:
     <br> NPS: Estou muito feliz em concluir mais um chamado,
     e ter resolvido o seu incidente! Mas e você
     ficou satisfeito com meu atendimento? Assim que o chamado for finalizado
@@ -70,11 +69,11 @@ function criaElemento(item) {
     novoItem.appendChild(botaoDeleta(item.id))
     console.log(item.nome)
     lista.appendChild(novoItem)
-    navigator.clipboard.writeText(`Nome: ` + item.nome +
+    navigator.clipboard.writeText(`Nome: Edgar`  +
         `\n\nCNPJ: ` + item.cnpj +
-        `\n\nDescrição: ` + item.problema +
+        `\n\nDescrição: Ao acessar o módulo Notas Fiscais, foram identificadas notas pendentes de reprocessamento. ` + 
         `\n\nMensagem de erro: Não Há\n 
-Ambiente: LinxPOS`);
+Ambiente: LinxPOS Manager`);
 }
 
 function botaoDeleta(id) {
